@@ -1,0 +1,16 @@
+name: Feature request / 功能建议
+description: 建议新的设计场景、组件或版式
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景 / Scenario
+      description: 希望用什么内容、在哪种载体上完成什么工作
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: 建议的改动 / Proposed change
+    validations:
+      required: true

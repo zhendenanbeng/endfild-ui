@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 470" role="img" aria-labelledby="title desc">
+<title id="title">Endfield Design Kit</title><desc id="desc">终末地风格设计技能，用于网页、可编辑演示与报告</desc>
+<rect width="1280" height="470" fill="#FEFEFD"/><rect x="0" width="18" height="470" fill="#FFFA00"/>
+<g fill="#191919" font-family="Arial,Microsoft YaHei,sans-serif"><text x="66" y="74" font-size="16" letter-spacing="4">DESIGN SKILL / 1.0.0</text><text x="61" y="197" font-size="102" font-weight="800" letter-spacing="-3">ENDFIELD</text><text x="66" y="267" font-size="37" font-weight="700">终末地风格设计套件</text><text x="68" y="327" font-size="21" fill="#626260">网页界面与可编辑演示，共用一套工业视觉语言。</text></g>
+<path fill="#191919" d="M923 60H1217V302L1188 331H923Z"/><g fill="#FEFEFD" font-family="Arial,sans-serif" font-size="23"><text x="955" y="121">WEB / UI</text><text x="955" y="192">PPT / SLIDES</text><text x="955" y="263">REPORT / PRINT</text></g><rect x="923" y="60" width="7" height="271" fill="#FFFA00"/>
+<path d="M66 379H1217" stroke="#DDDDDA"/><g fill="#626260" font-size="14" font-family="Arial,Microsoft YaHei,sans-serif"><text x="68" y="423">UNOFFICIAL / 无游戏官方素材</text><text x="1010" y="423">MIT + Saira OFL</text></g>
+</svg>

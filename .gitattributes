@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.pptx binary
+*.ttf binary
+*.woff2 binary
+skills/endfield-design-kit/assets/web/fonts/Saira-OFL.txt whitespace=-blank-at-eol

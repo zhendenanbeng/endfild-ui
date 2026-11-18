@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- Yellow Paper variant: yellow / neutral / tight / hatch / standard / calm.
+     Main visual: actual web and editable-slide previews. Surface: showcase. -->
+<html lang="zh-CN" data-theme="light" data-version="1.0.0">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="非官方终末地风格 AI 设计技能，提供网页组件、可编辑 PPT 模板，以及报告与海报的视觉规则。">
+  <meta name="theme-color" content="#FFFA00">
+  <title>Endfield Design Kit / 终末地风格设计技能</title>
+  <link rel="icon" href="docs/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="docs/site.css"><script src="docs/site.js" defer></script>
+</head>
+<body>
+<a class="edk-skip" href="#main">跳到主要内容</a>
+<header class="edk-nav">
+  <a class="edk-brand" href="#top" aria-label="Endfield Design Kit 首页"><span class="edk-mark">EF</span><span>ENDFIELD<br><small>DESIGN KIT</small></span></a>
+  <nav aria-label="页面导航"><a href="#preview">看效果</a><a href="#formats">适用场景</a><a href="#install">安装</a></nav>
+  <div class="edk-nav-tools"><button id="themeToggle" class="edk-theme" aria-pressed="false" aria-label="切换到深色主题">深色</button><a class="edk-github" href="https://github.com/zhendenanbeng/endfild-ui" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+</header>
+<main id="main">
+  <section class="edk-hero edk-section" id="top" aria-labelledby="heroTitle">
+    <div class="edk-hero-copy">
+      <span class="edk-eyebrow">// DESIGN SKILL / V1.0.0</span>
+      <p class="edk-wordmark" aria-hidden="true">ENDFIELD</p>
+      <h1 id="heroTitle">终末地风格，<br>用于网页与演示</h1>
+      <p class="edk-intro">把浅纸色、墨黑、亮黄和工业排版，带进你的下一个作品。为 AI 提供可调用的规则，也为你准备能直接改用的模板。</p>
+      <div class="edk-actions"><a class="edk-button edk-button--signal" href="#install">安装设计技能</a><a class="edk-button edk-button--ink" href="skills/endfield-design-kit/assets/web/index.html">打开网页示例 ↗</a></div>
+      <p class="edk-hero-note">非官方风格工具包 / 不包含游戏官方素材</p>
+    </div>
+    <a class="edk-hero-preview" href="#preview" aria-label="查看网页与 PPT 的实际效果">
+      <div class="edk-frame-label"><span>WEB / YELLOW PAPER</span><span>浅色工作台</span></div>
+      <img src="skills/endfield-design-kit/assets/preview-web.jpg" alt="终末地风格的浅色数据工作台，包含记录曲线、筛选与操作区" width="1265" height="720">
+      <div class="edk-frame-foot"><span class="edk-live-dot"></span>可交互示例 / 离线字体 / 桌面与手机</div>
+    </a>
+  </section>
+
+  <section class="edk-section edk-preview" id="preview" aria-labelledby="previewTitle">
+    <div class="edk-section-head"><div><span class="edk-eyebrow">// PREVIEW</span><h2 id="previewTitle">先看实际效果</h2></div><p>同一种气质，按载体调整信息密度。</p></div>
+    <div class="edk-tabs" role="group" aria-label="选择预览类型"><button data-preview="web" aria-pressed="true">网页 / WEB</button><button data-preview="dark" aria-pressed="false">深色 / DARK</button><button data-preview="slides" aria-pressed="false">演示 / SLIDES</button></div>
+    <figure class="edk-preview-frame"><img id="previewImage" src="skills/endfield-design-kit/assets/preview-web.jpg" alt="浅色网页工作台预览" width="1265" height="720" loading="lazy"><figcaption><span id="previewCaption">浅色网页：记录选择、曲线和表格共用清楚的层级。</span><a id="previewOpen" href="skills/endfield-design-kit/assets/web/index.html">打开交互示例 ↗</a></figcaption></figure>
+  </section>
+
+  <section class="edk-section" id="formats" aria-labelledby="formatsTitle">
+    <div class="edk-section-head"><div><span class="edk-eyebrow">// FORMATS</span><h2 id="formatsTitle">按你的任务使用</h2></div></div>
+    <div class="edk-format-list">
+      <article><span class="edk-format-name">WEB / UI</span><div><h3>前端与工作台</h3><p>直接使用 HTML、CSS 与本地字体；也可以接入已有的 React、Vue 或其他技术栈。保留你的筛选、表格和任务逻辑。</p></div><a href="skills/endfield-design-kit/assets/web/index.html">打开示例 ↗</a></article>
+      <article><span class="edk-format-name">PPT / SLIDES</span><div><h3>可编辑演示文稿</h3><p>六类版式可以复制组合。文字、表格和数据图表保持可编辑，按投影阅读调整字号，不把网页整页截图塞进 PPT。</p></div><a href="skills/endfield-design-kit/assets/slides/yellow-paper-template.pptx" download>下载 PPT 模板 ↓</a></article>
+      <article><span class="edk-format-name">REPORT / PRINT</span><div><h3>阅读报告与海报</h3><p>共用配色和字体规则，重新安排段落、图表与留白。保持图例、单位、来源和数据本来的含义。</p></div><a href="https://github.com/zhendenanbeng/endfild-ui/blob/main/skills/endfield-design-kit/references/other-media.md">阅读规则 ↗</a></article>
+    </div>
+  </section>
+
+  <section class="edk-section edk-install" id="install" aria-labelledby="installTitle">
+    <div><span class="edk-eyebrow">// INSTALL</span><h2 id="installTitle">装进你的 AI 工具</h2><p>按 Agent Skills 格式组织，资源与技能入口一起保留。选择你使用的客户端，再在新会话中点名调用。</p><a class="edk-release-link" href="https://github.com/zhendenanbeng/endfild-ui/releases/latest">获取 ZIP 发行包 ↗</a></div>
+    <div class="edk-command-box"><div class="edk-command-head"><span>skills CLI</span><button id="copyCommand" class="edk-copy">复制命令</button></div><pre><code id="installCommand">npx skills add zhendenanbeng/endfild-ui --skill endfield-design-kit</code></pre><div class="edk-command-options"><button data-install="project" aria-pressed="true">当前项目</button><button data-install="codex" aria-pressed="false">Codex 全局</button></div><p id="copyStatus" class="edk-command-note" role="status" aria-live="polite">需要可运行 skills CLI 的 Node.js。也可按仓库说明使用 Python 或手动安装。</p></div>
+  </section>
+
+  <section class="edk-section edk-use" aria-labelledby="useTitle">
+    <div><span class="edk-eyebrow">// USE</span><h2 id="useTitle">说清内容，指定风格</h2></div>
+    <div class="edk-prompts"><pre>使用 $endfield-design-kit 做一个终末地风格的数据分析前端。
+保留筛选、数据表与导出，适配桌面和手机。</pre><pre>使用 $endfield-design-kit 把这些材料做成 8 页可编辑 PPT。
+保留原始数字、图例和引用，采用终末地风格。</pre></div>
+  </section>
+</main>
+<footer class="edk-footer"><a class="edk-brand-small" href="#top">ENDFIELD / DESIGN KIT</a><p>非官方《明日方舟：终末地》风格设计技能。游戏名称归各自权利人所有。</p><div><a href="LICENSE">MIT 许可</a><a href="NOTICE.md">来源与字体许可</a><a href="https://github.com/zhendenanbeng/endfild-ui">源代码 ↗</a></div></footer>
+</body></html>

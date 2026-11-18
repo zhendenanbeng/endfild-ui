@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light" data-tone="bright">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Endfield Design Kit / 终末地风格工作台</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFFA00' d='M0 0h32v25l-7 7H0z'/%3E%3Ctext x='3' y='23' font-family='Arial' font-size='19' font-weight='800'%3EEF%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="theme.css"><script src="demo.js" defer></script></head>
+<body>
+<aside class="yp-rail" aria-label="示例导航">
+  <a class="yp-brand" href="#analysisView" aria-label="Endfield Design Kit 首页"><span class="yp-mark">EF</span><small>ENDFIELD / KIT</small></a>
+  <nav>
+    <button class="yp-nav-item" data-view="analysis" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18M4 15l4-4 4 2 4-8 4 4"/></svg><span>工作台</span><small>ANALYSIS</small></button>
+    <button class="yp-nav-item" data-view="report"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6Zm8 0v5h5M9 12h7m-7 4h7"/></svg><span>报告</span><small>REPORT</small></button>
+    <button class="yp-nav-item" data-view="components"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h7v7H3Zm11 0h7v7h-7ZM3 15h7v6H3Zm11 0h7v6h-7Z"/></svg><span>组件</span><small>ELEMENTS</small></button>
+  </nav><footer>DESIGN / 1.0</footer>
+</aside>
+<div class="yp-app">
+  <header class="yp-header">
+    <div class="yp-title"><span class="yp-kicker" id="pageKicker">// 01 / WORKBENCH</span><h1 id="pageTitle">数据分析工作台</h1><p id="pageSubtitle">浏览记录、对照响应曲线，再整理成可以复核的报告。</p></div>
+    <div class="yp-actions"><button class="yp-button" id="toneToggle" aria-pressed="false">柔黄强调</button><button class="yp-button" id="themeToggle" aria-pressed="false">深色模式</button></div>
+  </header>
+  <main>
+    <section id="analysisView" aria-label="数据工作台">
+      <div class="yp-filterbar">
+        <label class="yp-control">筛选记录<input type="search" id="query" placeholder="输入编号，例如 A04" autocomplete="off"></label>
+        <label class="yp-control">数据批次<select id="batch"><option value="all">全部演示记录</option value="SET 01">SET 01</option><option value="SET 02">SET 02</option></select></label>
+        <div class="yp-actions"><button class="yp-button yp-button--solid" id="exportCsv">导出 CSV</button><button class="yp-button yp-button--signal" id="showReport">查看报告 ↗</button></div>
+      </div>
+      <div class="yp-workspace">
+        <div>
+          <section class="yp-panel"><h2 class="yp-panel-heading">响应曲线 <small>SAMPLE SERIES</small></h2><div class="yp-plot-top"><span>响应值 / a.u.</span><span id="selectedTag">当前记录 A04</span></div>
+            <svg class="yp-plot" id="chart" viewBox="0 0 760 330" role="group" aria-labelledby="chartTitle" aria-describedby="chartDescription"><title id="chartTitle">演示记录响应曲线</title><desc id="chartDescription">虚构的样本响应，具体数值见下方表格。</desc><g id="chartGrid"></g><path class="trace" id="trace"></path><g id="chartPoints"></g></svg>
+            <p class="yp-caption">点击曲线点或表格记录查看明细。图中数值全部为演示数据。</p>
+          </section>
+          <section class="yp-panel"><h2 class="yp-panel-heading">记录列表 <small>RECORDS</small></h2><div class="yp-table-wrap"><table class="yp-table"><thead><tr><th scope="col">记录</th><th scope="col">批次</th><th scope="col">响应 / a.u.</th><th scope="col">误差 / a.u.</th><th scope="col">复核状态</th></tr></thead><tbody id="rows"></tbody></table></div><p class="yp-empty" id="empty" hidden>没有匹配记录，试试清空筛选。</p><div class="yp-table-footer"><span id="recordCount">8 条演示记录</span><span>灰底分区 · 细线表格 · 黄色选中标记</span></div></section>
+        </div>
+        <aside class="yp-aside" aria-label="当前记录与复核状态">
+          <section class="yp-panel"><h2 class="yp-panel-heading">当前记录 <small>SELECTED</small></h2><span class="yp-kicker" id="recordId">A04 / SET 01</span><div class="yp-metric"><span id="recordValue">83</span> <small>a.u.</small></div><dl class="yp-details"><dt>记录编号</dt><dd id="detailId">A04</dd><dt>误差</dt><dd id="detailError">± 2.6</dd><dt>复核状态</dt><dd id="detailState">待复核</dd></dl><hr class="yp-divider"><p class="yp-note">选择状态同时使用边缘、文字和颜色表示。数据本身的单位与误差保持独立。</p><button class="yp-button" id="nextRecord">下一条记录 →</button></section>
+          <section class="yp-panel"><h2 class="yp-panel-heading">复核进度 <small>REVIEW</small></h2><span class="yp-status yp-status--ok" id="reviewCount">已复核 4 / 8</span><div class="yp-progress" role="progressbar" aria-label="演示复核进度" aria-valuemin="0" aria-valuemax="8" aria-valuenow="4"><span style="width:50%"></span></div><p class="yp-note">所有样本和状态均为演示内容，可直接替换为自己的业务。</p><p class="yp-note" id="feedback" role="status" aria-live="polite"></p></section>
+        </aside>
+      </div>
+    </section>
+    <section id="reportView" class="yp-document" hidden aria-label="阅读报告示例">
+      <span class="yp-kicker">// REPORT / DEMO</span><h2>演示分析报告</h2><p class="yp-lead">报告沿用同一套配色，把空间留给段落、表格与数据说明。</p><h3>数据说明</h3><p>本页使用 8 条虚构记录展示阅读排版。响应值使用任意单位 a.u.，它们不代表实验结果、真实任务进度或模型准确率。</p><div class="yp-table-wrap"><table class="yp-table"><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td>来源</td><td>本模板内置的演示数据</td></tr><tr><td>品牌强调</td><td>亮黄只标注当前位置、主要动作和少量重点</td></tr><tr><td>数据颜色</td><td>保留原数据的色标、单位和语义</td></tr></tbody></table></div><h3>复核记录</h3><p>实际使用时，在此写清数据来源、处理方式、结果的限制和复核结论。页面可打印；侧栏与按钮在打印时隐藏。</p><div class="yp-actions"><button class="yp-button yp-button--solid" id="printReport">打印报告</button></div>
+    </section>
+    <section id="componentsView" hidden aria-label="组件示例">
+      <p class="yp-lead">一套视觉规则，按内容选择组件。</p>
+      <section class="yp-panel"><h2 class="yp-panel-heading">动作层级 <small>ACTIONS</small></h2><div class="yp-component-row"><button class="yp-button yp-button--signal" data-demo-action="主要动作">主要动作</button><button class="yp-button yp-button--solid" data-demo-action="次要动作">次要动作</button><button class="yp-button" data-demo-action="普通操作">普通操作</button><button class="yp-button" disabled>暂不可用</button></div><p class="yp-note" id="componentFeedback" role="status" aria-live="polite">可点击按钮查看反馈，Tab 可检查键盘焦点。</p></section>
+      <section class="yp-panel"><h2 class="yp-panel-heading">状态与配色 <small>SEMANTICS</small></h2><div class="yp-component-row"><span class="yp-status yp-status--ok">已完成</span><span class="yp-status">待复核</span><span class="yp-status yp-status--danger">读取失败</span></div><div class="yp-component-row"><span class="yp-swatch" style="background:var(--yp-paper)" title="纸色"></span><span class="yp-swatch" style="background:var(--yp-panel-strong)" title="面板"></span><span class="yp-swatch" style="background:var(--yp-ink)" title="墨色"></span><span class="yp-swatch" style="background:var(--yp-accent)" title="强调"></span><span class="yp-note">品牌黄与成功、失败的语义颜色各自保留。</span></div></section>
+    </section>
+  </main>
+</div>
+<footer class="yp-footer"><span>ENDFIELD DESIGN KIT <strong>终末地风格 / DEMO</strong></span><span>OFFLINE / 虚构示例数据</span></footer>
+</body></html>

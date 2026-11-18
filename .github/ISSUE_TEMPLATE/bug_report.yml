@@ -1,0 +1,30 @@
+name: Bug report / 问题反馈
+description: 安装、模板、显示或导出存在问题
+title: '[Bug] '
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / Version
+      placeholder: 例如 1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境 / Environment
+      description: 操作系统、使用的 AI 客户端或浏览器，以及涉及的输出格式
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 / Steps
+      description: 描述实际操作、预期结果和出现的情况
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图或日志 / Evidence
+      description: 分享前请移除账号令牌、私人路径和业务数据

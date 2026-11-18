@@ -1,0 +1,11 @@
+{
+  "name": "endfield-design-kit",
+  "displayName": "Endfield Design Kit",
+  "version": "1.0.0",
+  "description": "Unofficial Arknights: Endfield-inspired design skill for web, editable slides and reports.",
+  "repository": "https://github.com/zhendenanbeng/endfild-ui",
+  "skill": "skills/endfield-design-kit",
+  "releaseDate": "2026-11-18",
+  "license": "MIT",
+  "runtimeFiles": ["SKILL.md", "LICENSE", "NOTICE.md", "agents", "assets", "references", "scripts/materialize.py"]
+}

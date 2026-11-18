@@ -1,0 +1,4 @@
+interface:
+  display_name: "Endfield Design Kit / 终末地风格"
+  short_description: "终末地风格设计技能，制作黄黑工业风网页、可编辑 PPT 和报告"
+  default_prompt: "请使用 $endfield-design-kit，以终末地风格完成这次设计，保留我的内容、功能和交付格式。"

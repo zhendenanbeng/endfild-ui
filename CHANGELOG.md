@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- 路径检查按实际文件位置比较，兼容 Windows runner 的 8.3 短路径别名。
+- CI 矩阵独立完成所有平台检查；后续 Release 需要跨平台检查全部通过。
+
 ## 1.0.0 — 2026-11-18
 
 首个 GitHub 产品版本。

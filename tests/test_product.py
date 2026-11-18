@@ -71,7 +71,7 @@ class ProductTests(TestCase):
         env = dict(os.environ, PYTHONIOENCODING='ascii', PYTHONUTF8='0')
         result = subprocess.run([sys.executable, str(common.skill_root() / 'scripts/materialize.py'), '--kind', 'web', '--out', str(dest)], env=env, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout.decode('ascii'))['output'], str(dest))
+        self.assertEqual(Path(json.loads(result.stdout.decode('ascii'))['output']).resolve(), dest.resolve())
         self.assertTrue((dest / 'index.html').is_file())
 
     def test_slide_materialization_is_the_native_template(self):

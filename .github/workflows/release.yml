@@ -12,7 +12,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  verify:
+    uses: ./.github/workflows/validate.yml
   release:
+    needs: verify
     runs-on: ubuntu-latest
     permissions:
       contents: write

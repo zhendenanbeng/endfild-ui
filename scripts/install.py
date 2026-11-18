@@ -39,7 +39,7 @@ def main():
         target = install(args.skills_dir)
     except (OSError, ValueError) as exc:
         parser.exit(1, str(exc) + '\n')
-    print(json.dumps({'installed': str(target), 'invoke': '$' + config()['name']}, ensure_ascii=False))
+    print(json.dumps({'installed': str(target), 'invoke': '$' + config()['name']}, ensure_ascii=True))
 
 if __name__ == '__main__':
     main()

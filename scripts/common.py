@@ -36,6 +36,8 @@ def runtime_files(root=ROOT):
                 raise ValueError('Runtime symlinks are not distributed: ' + str(path))
             if any(part in IGNORED for part in path.relative_to(skill).parts) or path.suffix in ('.pyc', '.pyo'):
                 continue
+            if any(part.startswith('.') for part in path.relative_to(skill).parts) or path.name in ('.DS_Store', 'Thumbs.db'):
+                continue
             if path.is_file():
                 if not path.resolve().is_relative_to(skill):
                     raise ValueError('Runtime source escapes skill')
@@ -52,7 +54,7 @@ def archive(path, files, root_prefix='', date='2026-11-18'):
     with zipfile.ZipFile(path, 'w', zipfile.ZIP_STORED) as output:
         for relative, value in sorted(files.items()):
             name = PurePosixPath(root_prefix) / relative if root_prefix else PurePosixPath(relative)
-            if name.is_absolute() or '..' in name.parts:
+            if name.is_absolute() or '..' in name.parts or '\\' in str(name) or re.match(r'^[a-zA-Z]:', str(name)):
                 raise ValueError('Unsafe ZIP entry: ' + str(name))
             info = zipfile.ZipInfo(name.as_posix(), (year, month, day, 0, 0, 0))
             info.create_system = 3

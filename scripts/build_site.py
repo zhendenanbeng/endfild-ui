@@ -32,7 +32,7 @@ def main():
     parser.add_argument('--out', type=Path, default=ROOT / 'dist')
     args = parser.parse_args()
     target = build(args.out)
-    print(json.dumps({'archive': str(target), 'bytes': target.stat().st_size, 'sha256': sha256(target)}, ensure_ascii=False))
+    print(json.dumps({'archive': str(target), 'bytes': target.stat().st_size, 'sha256': sha256(target)}, ensure_ascii=True))
 
 if __name__ == '__main__':
     main()

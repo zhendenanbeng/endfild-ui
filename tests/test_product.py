@@ -66,6 +66,14 @@ class ProductTests(TestCase):
         self.assertNotEqual(self.materialize('web', dest).returncode, 0)
         self.assertEqual(before, {p.name: p.read_bytes() for p in dest.rglob('*') if p.is_file()})
 
+    def test_materializer_supports_unicode_paths_on_ascii_console(self):
+        dest = self.base / '中文路径'
+        env = dict(os.environ, PYTHONIOENCODING='ascii', PYTHONUTF8='0')
+        result = subprocess.run([sys.executable, str(common.skill_root() / 'scripts/materialize.py'), '--kind', 'web', '--out', str(dest)], env=env, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout.decode('ascii'))['output'], str(dest))
+        self.assertTrue((dest / 'index.html').is_file())
+
     def test_slide_materialization_is_the_native_template(self):
         dest = self.base / 'slides'
         result = self.materialize('slides', dest)
@@ -108,9 +116,20 @@ class ProductTests(TestCase):
                 self.assertEqual(hashlib.sha256(package.read(prefix + name)).hexdigest(), expected)
             self.assertTrue(all(not any(token in name for token in ('.git/', 'tests/', '__pycache__', 'node_modules')) for name in package.namelist()))
 
+    def test_untracked_environment_and_bytecode_are_not_released(self):
+        mirror = self.base / 'source'
+        shutil.copytree(ROOT, mirror, ignore=shutil.ignore_patterns('.git', 'dist', '__pycache__'))
+        assets = common.skill_root(mirror) / 'assets'
+        (assets / '.env').write_text('EXAMPLE=' + 'private-test-value', encoding='utf-8')
+        (assets / 'local.pyc').write_bytes(b'not distributable')
+        archive = build_release.build(self.base / 'release', mirror)
+        with zipfile.ZipFile(archive) as package:
+            self.assertFalse(any(name.endswith(('.env', '.pyc')) for name in package.namelist()))
+
     def test_archive_paths_cannot_traverse(self):
-        with self.assertRaises(ValueError):
-            common.archive(self.base / 'invalid.zip', {'../escape.txt': b'x'})
+        for name in ('../escape.txt', '..\\escape.txt', '/escape.txt', 'C:/escape.txt'):
+            with self.assertRaises(ValueError):
+                common.archive(self.base / 'invalid.zip', {name: b'x'})
 
     def test_static_site_is_portable_and_excludes_developer_files(self):
         archive = build_site.build(self.base / 'public')

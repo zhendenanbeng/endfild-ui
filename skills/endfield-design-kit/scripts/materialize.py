@@ -44,6 +44,6 @@ def main():
         target=destination/relative;target.parent.mkdir(parents=True,exist_ok=True)
         if isinstance(source,bytes):target.write_bytes(source)
         else:shutil.copy2(source,target)
-    print(json.dumps({'kind':args.kind,'output':str(destination),'files':len(files)},ensure_ascii=False))
+    print(json.dumps({'kind':args.kind,'output':str(destination),'files':len(files)},ensure_ascii=True))
 
 if __name__=='__main__':main()
